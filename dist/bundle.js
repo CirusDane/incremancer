@@ -3645,7 +3645,7 @@ var Incremancer;
             return this.model.runeEffects.critChance > 0 && Math.random() < this.model.runeEffects.critChance && (t *= this.model.runeEffects.critDamage, He(e.x, e.y - 10, t)), t
         }
         applyItemUpgrades() {
-            this.model = ne.getInstance(), this.moveSpeed = 40, this.respawnTime = 10, this.randomSpells = [], this.persistent.items.filter((e => e.q)).forEach((e => {
+            this.model = ne.getInstance(), this.moveSpeed = (40 + this.model.SkeleMoveMod), this.respawnTime = 10, this.randomSpells = [], this.persistent.items.filter((e => e.q)).forEach((e => {
                 e.e.forEach((t => {
                     switch (t) {
                         case this.stats.respawnTime.id:
