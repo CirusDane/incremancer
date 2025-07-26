@@ -5460,6 +5460,10 @@ var Incremancer;
                 }));
             },
             equipItem(e) {
+                if(this.isShown && Y.shift) {
+                    this.itemDropped(e.id, -1);
+                    return;
+                }
                 i.persistent.items.forEach((function (t) {
                     t.s == e.s && (t.q = !1)
                 })), e.q = !0, h.applyUpgrades(), this.updateEquippedItems();
@@ -5471,7 +5475,7 @@ var Incremancer;
                 c.confirmMessage = "Are you sure you want to destroy all non-equipped items? You will earn " + n(i.xpTotal()) + " xp", c.confirmCallback = function () {
                     c.confirmCallback = !1, i.destroyAllItems()
                 }
-            }
+            },
         }, s.ready((function () {
             e.updatePromise = t(u, 200), h.angularModel = c, kt()
         }))
@@ -5539,6 +5543,17 @@ var Incremancer;
                 })), s.bind("dragend", (function (t) {
                     document.getElementById("champ-hold").classList.toggle("no-tooltip"), angular.element(s)[0].style.opacity = "", e.$emit("item-drag-end", r)
                 })))
+            }
+        }
+    }]).directive('shiftDeleteItem', ['$rootScope', function(e) {
+        return {
+            restrict: "A",
+            link: function (t, s, i, a) {
+                s.bind('mouseenter', (function () {
+                    Y.shift && s.addClass('shift-trash');
+                })),s.bind('mouseleave', (function () {
+                    s.removeClass('shift-trash');
+                }));
             }
         }
     }]).directive("droppableTarget", ["$rootScope", function (e) {

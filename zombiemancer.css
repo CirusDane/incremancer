@@ -914,6 +914,13 @@ div.skeleton > div.lvl.dead {
   background: url("images/trash-can.png");
   background-position-y: -5px;
 }
+
+.inventory .item.shift-trash .icon {
+  background: url("images/trash-can.png");
+  background-position-y: -5px;
+  border:1px solid red;
+
+}
 .inventory .item .icon {
   background-size: contain !important;
 }
