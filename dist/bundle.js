@@ -2606,7 +2606,7 @@ var Incremancer;
                                             e < 999 ? 85e5 * Math.pow(1.03, e - 499) :
                                                 e < 1499 ? 98e16 * Math.pow(1.021, e - 1499) :
                                                     e > 2299 ? 845e23 * Math.pow(1.025, e - 2299) :
-                                                        22e12 * Math.pow(1.025, e - 999)
+                                                        4.5e12 * Math.pow(1.025, e - 999)
         }
         getAttackDamage() {
             1 != this.gameModel.level ? 2 != this.gameModel.level ? 3 != this.gameModel.level ? this.attackDamage = Math.round(this.getMaxHealth(this.gameModel.level) / 10) : this.attackDamage = 5 : this.attackDamage = 4 : this.attackDamage = 2
